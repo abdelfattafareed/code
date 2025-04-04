@@ -1,0 +1,56 @@
+package org.kotlin.unlimted
+
+fun main() {
+}
+
+
+
+
+fun isValidSudoku(board: List<List<Char>>): Boolean {
+    val size = board.size
+
+
+    for (row in board) {
+        val seen = mutableSetOf<Char>()
+        for (cell in row) {
+            if (cell != '-') {
+                if (cell in seen) return false
+                seen.add(cell)
+            }
+        }
+    }
+
+
+    for (col in 0 until size) {
+        val seen = mutableSetOf<Char>()
+        for (row in 0 until size) {
+            val cell = board[row][col]
+            if (cell != '-') {
+                if (cell in seen) return false
+                seen.add(cell)
+            }
+        }
+    }
+
+
+    val boxSize = kotlin.math.sqrt(size.toDouble()).toInt()
+    for (boxRow in 0 until boxSize) {
+        for (boxCol in 0 until boxSize) {
+            val seen = mutableSetOf<Char>()
+            for (i in 0 until boxSize) {
+                for (j in 0 until boxSize) {
+                    val row = boxRow * boxSize + i
+                    val col = boxCol * boxSize + j
+                    val cell = board[row][col]
+                    if (cell != '-') {
+                        if (cell in seen) return false
+                        seen.add(cell)
+                    }
+                }
+            }
+        }
+    }
+
+    return true
+}
+
