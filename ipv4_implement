@@ -1,0 +1,19 @@
+package org.kotlin.unlimted
+fun main(){
+
+}
+fun isValidIPv4(address: String): Boolean {
+    val parts = address.split(".")
+    if (parts.size != 4) return false
+
+    for (part in parts) {
+        if (part.isEmpty() || part.any { !it.isDigit() }) return false
+
+        if (part.length > 1 && part.startsWith('0')) return false
+
+        val number = part.toIntOrNull() ?: return false
+        if (number !in 0..255) return false
+    }
+
+    return true
+}
