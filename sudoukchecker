@@ -1,0 +1,89 @@
+package org.kotlin.unlimted
+fun main() {
+
+    test(
+        name = "When give a valid sudoku"
+        , result = sudoukchecker(listOf(
+            listOf('5','3','-','-','7','-','-','-','-'),
+            listOf('6','-','-','1','9','5','-','-','-'),
+            listOf('-','9','8','-','-','-','-','6','-'),
+            listOf('8','-','-','-','6','-','-','-','3'),
+            listOf('4','-','-','8','-','3','-','-','1'),
+            listOf('7','-','-','-','2','-','-','-','6'),
+            listOf('-','6','-','-','-','-','2','8','-'),
+            listOf('-','-','-','4','1','9','-','-','5'),
+            listOf('-','-','-','-','8','-','-','7','9')
+                )
+        )
+
+        , correctResult = true
+    )
+    test(
+        name="When a sudoku with duplicate numbers  "
+        , result = sudoukchecker(listOf(
+            listOf('5','3','-','-','7','-','5','-','-'),
+            listOf('6','-','-','1','9','5','-','-','-'),
+            listOf('-','9','8','-','-','-','-','6','-'),
+            listOf('8','-','-','-','6','-','-','-','3'),
+            listOf('4','-','-','8','-','3','-','-','1'),
+            listOf('7','-','-','-','2','-','-','-','6'),
+            listOf('-','6','-','-','-','-','2','8','-'),
+            listOf('-','-','-','4','1','9','-','-','5'),
+            listOf('-','-','-','-','8','-','-','7','9')
+        ))
+        , correctResult = true
+    )
+
+    test(
+        name="duplicate in  column "
+        , result = sudoukchecker(listOf(
+            listOf('5','3','-','-','7','-','-','-','-'),
+            listOf('6','-','-','1','9','5','-','-','-'),
+            listOf('5','9','8','-','-','-','-','6','-'),
+            listOf('8','-','-','-','6','-','-','-','3'),
+            listOf('4','-','-','8','-','3','-','-','1'),
+            listOf('7','-','-','-','2','-','-','-','6'),
+            listOf('-','6','-','-','-','-','2','8','-'),
+            listOf('-','-','-','4','1','9','-','-','5'),
+            listOf('-','-','-','-','8','-','-','7','9')
+        ))
+        , correctResult = true
+    )
+
+    test(
+        name = "duplicate in 3x3 box"
+        , result = sudoukchecker(listOf(
+            listOf('5','3','-','-','7','-','-','-','-'),
+            listOf('6','-','-','1','9','5','-','-','-'),
+            listOf('-','9','5','-','-','-','-','6','-'),
+            listOf('8','-','-','-','6','-','-','-','3'),
+            listOf('4','-','-','8','-','3','-','-','1'),
+            listOf('7','-','-','-','2','-','-','-','6'),
+            listOf('-','6','-','-','-','-','2','8','-'),
+            listOf('-','-','-','4','1','9','-','-','5'),
+            listOf('-','-','-','-','8','-','-','7','9')
+        ))
+        , correctResult = true
+    )
+
+
+
+
+}
+
+fun sudoukchecker(numbers : List<List<Char>>):Boolean{
+    return false
+}
+
+
+
+fun test (name : String, result : Boolean, correctResult : Boolean){
+    if(result==correctResult){
+        println("Success + $name")
+    } else {
+        println("Aliened + $name")
+    }
+}
+
+
+
