@@ -1,0 +1,41 @@
+package org.kotlin.unlimted
+
+fun main() {
+
+    test(
+        name="valid"
+        , result = ipv4checker("192.168.0.1")
+        , correctResult = true
+    )
+
+    test(
+        name = "valid"
+        , result = ipv4checker("255.255.255.255")
+        , correctResult = true
+    )
+
+    test(
+        name= "Outside the specified range"
+        , result = ipv4checker("192.168.1.256")
+        , correctResult = false
+    )
+
+    test(
+        name = "Outside the specified range"
+        , result = ipv4checker("01.2.68.0")
+        , correctResult = false
+    )
+
+    test(
+        name = "Outside the specified range"
+        , result = ipv4checker("33.01.2.68.0")
+        , correctResult = false
+    )
+}
+
+
+fun ipv4checker(address:String):Boolean {
+    return false
+}
+
+
